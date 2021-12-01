@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bedesmet <bedesmet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:40:14 by bedesmet          #+#    #+#             */
-/*   Updated: 2021/11/05 17:57:56 by bedesmet         ###   ########.fr       */
+/*   Updated: 2021/12/02 00:15:44 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, unsigned int n)
 {

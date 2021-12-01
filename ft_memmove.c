@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bedesmet <bedesmet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 16:40:02 by bedesmet          #+#    #+#             */
-/*   Updated: 2021/11/05 17:57:41 by bedesmet         ###   ########.fr       */
+/*   Created: 2021/11/22 15:40:34 by Ben               #+#    #+#             */
+/*   Updated: 2021/12/02 00:17:03 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

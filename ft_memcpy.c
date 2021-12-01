@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bedesmet <bedesmet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:39:52 by bedesmet          #+#    #+#             */
-/*   Updated: 2021/11/05 17:51:31 by bedesmet         ###   ########.fr       */
+/*   Updated: 2021/12/02 00:20:49 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
