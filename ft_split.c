@@ -6,7 +6,7 @@
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:56:42 by Ben               #+#    #+#             */
-/*   Updated: 2021/12/02 00:20:52 by Ben              ###   ########.fr       */
+/*   Updated: 2021/12/07 10:40:02 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static int	wordscounter(char const *s, char c)
 {
-	int		i;
-	int		counter;
+	int	i;
+	int	counter;
 
 	i = 0;
 	counter = 1;
 	while (s[i] == c)
 		i++;
 	if (s[i] && s[i] != c)
-		counter++;
+		counter ++;
 	while (s[i])
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1])
@@ -35,8 +35,8 @@ static int	wordscounter(char const *s, char c)
 static char	*filler(char const *s, int i, int j)
 {
 	int		len;
-	char 	*word;
-	int 	k;
+	char	*word;
+	int		k;
 
 	len = i - j + 1;
 	word = (char *)malloc((len + 1) * sizeof(char));
@@ -51,16 +51,27 @@ static char	*filler(char const *s, int i, int j)
 	}
 	word[k] = '\0';
 	return (word);
- }
+}
 
- static char	**cutter(char const *s, char c, char **res)
- {
-	 int i;
-	 int j;
-	 int k;
-	 int l;
+static char	**split_free(char **tab, int k)
+{
+	while (k)
+	{
+		free(tab[k]);
+		k--;
+	}
+	free(tab);
+	return (NULL);
+}
 
-	 	l = ft_strlen(s);
+static char	**cutter(char const *s, char c, char **res)
+{
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+
+	l = ft_strlen(s);
 	i = 0;
 	k = 0;
 	while (s[i] == c)
@@ -105,4 +116,4 @@ char	**ft_split(char const *s, char c)
 	if (!res)
 		return (NULL);
 	return (res);
- }
+}
