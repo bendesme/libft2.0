@@ -6,7 +6,7 @@
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:40:45 by bedesmet          #+#    #+#             */
-/*   Updated: 2021/12/07 10:38:42 by Ben              ###   ########.fr       */
+/*   Updated: 2021/12/07 16:58:06 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ unsigned int	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	a = 0;
 	b = 0;
-	if (!src || !dst)
-		return (0);
+	// if (!src || !dst)
+	// 	return (0);
 	while (src[b])
 		b++;
 	if (size == 0)

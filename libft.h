@@ -6,7 +6,7 @@
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:11:58 by Ben               #+#    #+#             */
-/*   Updated: 2021/12/02 00:12:17 by Ben              ###   ########.fr       */
+/*   Updated: 2021/12/07 16:36:43 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char			*ft_strdup(const char *src);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
+void 			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
