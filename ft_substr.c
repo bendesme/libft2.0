@@ -1,46 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 16:39:41 by bedesmet          #+#    #+#             */
-/*   Updated: 2021/12/07 10:01:40 by Ben              ###   ########.fr       */
+/*   Created: 2021/12/07 10:08:11 by Ben               #+#    #+#             */
+/*   Updated: 2021/12/07 10:08:14 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	c(int i)
+size_t	ft_strlen2(const char *s)
 {
-	if (i < 0)
-		return (-i);
+	size_t	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
 	return (i);
 }
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*a;
-	unsigned char	*b;
-	size_t			i;
+	size_t	i;
+	size_t	size;
+	char	*res;
 
-	a = (unsigned char *)s1;
-	b = (unsigned char *)s2;
-	if (s1 && s2 && n <= 0)
+	size = ft_strlen2(s);
+	if (start + len >= size)
+		len = size - start;
+	if (!s)
 		return (0);
-	else if (!a && s1 && s2)
-		return (-b[0]);
-	else if (!b && s1 && s2)
-		return (a[0]);
+	if (size < start)
+		len = 0;
+	res = (char *)malloc((len + 1) * sizeof(char));
+	if (!res)
+		return (0);
 	i = 0;
-	while (i < n - 1)
+	while (s[start + i] && i < len)
 	{
-		if (a[i] != b[i])
-			return (c(a[i]) - c(b[i]));
+		res[i] = s[start + i];
 		i++;
 	}
-	if (s1 && s2)
-		return (c(a[i]) - c(b[i]));
-	return (0);
+	res[i] = '\0';
+	return (res);
 }

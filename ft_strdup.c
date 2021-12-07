@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 16:41:15 by bedesmet          #+#    #+#             */
-/*   Updated: 2021/12/07 10:07:05 by Ben              ###   ########.fr       */
+/*   Created: 2021/12/07 10:05:34 by Ben               #+#    #+#             */
+/*   Updated: 2021/12/07 10:05:40 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *substr, size_t len)
+char	*ft_strdup(const char *src)
 {
-	size_t	a;
-	size_t	b;
+	int		i;
+	char	*cpy;
 
-	if (!ft_strlen(substr))
-		return ((char *)str);
-	a = 0;
-	while (str[a] && a < len)
+	i = 0;
+	while (src[i])
+		i++;
+	cpy = (char *)malloc((i + 1) * sizeof(char));
+	if (!cpy)
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		b = 0;
-		while (substr[b] && str[a + b] && substr[b] == str[a + b]
-			&& (a + b) < len)
-			b++;
-		if (!substr[b])
-			return ((char *)&str[a]);
-		a++;
+		cpy[i] = src[i];
+		i++;
 	}
-	return (0);
+	cpy[i] = '\0';
+	return (cpy);
 }

@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ben <Ben@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 16:41:15 by bedesmet          #+#    #+#             */
-/*   Updated: 2021/12/07 10:07:05 by Ben              ###   ########.fr       */
+/*   Created: 2021/12/07 10:04:13 by Ben               #+#    #+#             */
+/*   Updated: 2021/12/07 10:04:45 by Ben              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *substr, size_t len)
+void	petit_putnbr(int nb, int fd)
 {
-	size_t	a;
-	size_t	b;
+	char	c;
 
-	if (!ft_strlen(substr))
-		return ((char *)str);
-	a = 0;
-	while (str[a] && a < len)
+	if (nb < 0)
 	{
-		b = 0;
-		while (substr[b] && str[a + b] && substr[b] == str[a + b]
-			&& (a + b) < len)
-			b++;
-		if (!substr[b])
-			return ((char *)&str[a]);
-		a++;
+		write(fd, "-", 1);
+		nb = -nb;
 	}
-	return (0);
+	c = nb + '0';
+	write(fd, &c, 1);
+}
+
+void	ft_putnbr_fd(int nb, int fd)
+{
+	if (nb > -10 && nb < 10)
+		petit_putnbr(nb, fd);
+	else if (nb > 0)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	else
+	{
+		if (nb == -2147483648)
+			write(fd, "-2147483648", 11);
+		else
+		{
+			write(fd, "-", 1);
+			ft_putnbr_fd(-nb, fd);
+		}
+	}
 }
